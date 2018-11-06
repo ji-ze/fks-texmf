@@ -25,27 +25,26 @@
 
 \DeclareMathAlphabet{\mathup}{OT1}{\familydefault}{m}{n}    % stojate pismo v matematice
 
-\let\underscore\_                                           % underscore sign
+\let\underscore\_					    % znaménko podtrzitka zb
 \let\xor\^                                                  % xor sign
-\renewcommand\_[2][1]{\ifmmode _{\textnormal{\scalebox{#1}{#2}}}\else\underscore#2\fi} %roman subscript
-\renewcommand\^[2][1]{\ifmmode ^{\textnormal{\scalebox{#1}{#2}}}\else\xor#2\fi} %roman superscript
+\renewcommand\_[2][1]{\ifmmode _{\textnormal{\scalebox{#1}{#2}}}\else\underscore#2\fi} %dolni index bez kurzivy
+\renewcommand\^[2][1]{\ifmmode ^{\textnormal{\scalebox{#1}{#2}}}\else\xor#2\fi} %horni index bez kurzivy
 \def\smallind{0.8}
 
-\def\({\left(} \def\){\right)}                              % parentheses
-\newcommand\ztoho{\quad\Rightarrow\quad}                    % implication
-\newcommand\frc[2]{\dfrac#1#2}                              % non-reduced fractions [obsolete]
-\newcommand\tsum{\mathop{\textstyle\sum}\limits}            % inline sum, chybne v beamru, \textnormalstyle ???
-\newcommand\tprod{\mathop{\textstyle\prod}\limits}          % inline product, chybne v beameru
-\newcommand\tint{\mathop{\textstyle\int}\nolimits}          % inline integral, chybne v beameru
-\newcommand\const{\textnormal{konst}}                       % konstanta
-\newcommand\dg{^\circ}                                      % stupen
-%\newcommand\C{^\circ\mskip-2mu\mathrm{C}}                  % Celsiuv stupen
-\def\C{^\circ\mskip-2mu\mathup{C}}                          % Celsiuv stupen (ugly fix for Win/Linux compatibility), beamer
-\let\Re\relax\DeclareMathOperator\Re{Re}                    % realna cast
-\let\Im\relax\DeclareMathOperator\Im{Im}                    % imaginarni cast
-\newcommand\eu{\mathup{e}}                                  % Eulerovo cislo
-\newcommand\im{\mathup{i}}                                  % imaginarni jednotka
-\renewcommand\d{\mathup{d}}                                 % differential sign
+\def\({\left(} \def\){\right)}				% velke zvorky
+\newcommand\ztoho{\quad\Rightarrow\quad}		% implikace
+\newcommand\frc[2]{\dfrac#1#2}				% neredukované zlomky [absolutně]
+\newcommand\tsum{\mathop{\textstyle\sum}\limits}	% suma v radku
+\newcommand\tprod{\mathop{\textstyle\prod}\limits}	% pi v radku
+\newcommand\tint{\mathop{\textstyle\int}\nolimits}	% integral v radku
+\newcommand\const{\mathrm{konst}}			% konstanta
+\newcommand\dg{^\circ}					% stupen
+\def\C{^\circ\mskip-2mu\mathrm{C}}			% Celsiuv stupen
+\renewcommand\Re{\mathop\mathrm{Re}\nolimits}		% realna cast
+\renewcommand\Im{\mathop\mathrm{Im}\nolimits}		% imaginarni cast
+\newcommand\eu{\mathrm{e}}				% Eulerovo cislo
+\newcommand\im{\mathrm{i}}				% imaginarni jednotka
+\renewcommand\d{\mathrm{d}}			        % znacka diferencialy
 \newcommand\der[2]{\frac{\d #1}{\d #2}}                     % prvni derivace
 \newcommand\dder[2]{\frac{\d^2 #1}{\d #2^2}}                % druha derivace
 \newcommand\pder[2]{\frac%                                  % prvni parcialni derivace
@@ -71,20 +70,22 @@
 \newcommand\argcotgh{\mathop\mathup{argcotgh}\nolimits}     % cesky inverzni hyp. cotangens
   \newcommand\argcoth{\mathop\mathup{argcotgh}\nolimits}
 \DeclareMathOperator\tr{Tr}                                 % stopa
-\DeclareMathOperator\sgn{sgn}                               % funkce signum
-\newcommand\Laplace{\Delta}                                 % trojuhelnickovity operator
-\DeclareMathOperator\rot{rot}                               % rotace
-\DeclareMathOperator\Div{div}                               % divergence
-\DeclareMathOperator\grad{grad}                             % gradient
-\newcommand\Dalembert{\Box}                                 % operátor D'Alembert
-\newcommand\prumer{\varnothing}                             % [obsolete]
-\newcommand\eqdef{\stackrel{\mathup{def}}{=}}               % definition equality
-\providecommand\qed{\hfill\square}                          % konec dukazu, podmínění kvůli beameru
-\newcommand\bod[1]{\mathsf{#1}}                             % geometric point
-\newcommand\bb[1]{\mathbb{#1}}                              % blackboard bold
-\newcommand\op[1]{\mathup{#1}}                              % operators
-\newcommand\abs[1]{\left|#1\right|}                         % absolutní hodnota
-\newcommand\conj[1]{#1^\ast}                                % komplexní sdružení
+\newcommand\sgn{\mathop\mathrm{sgn}\nolimits}		% funkce signum
+\newcommand\Laplace{\Delta}				% trojuhelnickovity operator
+\newcommand\rot{\mathop\mathrm{rot}\nolimits}		% rotace
+\newcommand\Div{\mathop\mathrm{div}\nolimits}		% divergence
+\newcommand\grad{\mathop\mathrm{grad}\nolimits}		% gradient
+\newcommand\Dalembert{\Box}			% operátor D'Alembert
+\newcommand\prumer{\varnothing}                 % prumer
+\newcommand\eqdef{\stackrel{\mathrm{def}}{=}} 	% definice rovnosti
+\newcommand\qed{\hfill\square}			% konec dukazu
+\DeclareMathAlphabet{\vect}{OT1}{\sfdefault}{bx}{sl}     % vektor (tecne pismono s normalnim indexem)
+\newcommand\bod[1]{\mathsf{#1}}	                % bod v geometrii
+\newcommand\bb[1]{\mathbb{#1}}                  % blackboard bold
+\newcommand\op[1]{\mathrm{#1}}			% libovolny opreator
+\newcommand\abs[1]{\left|#1\right|}             % absolutní hodnota
+\newcommand\conj[1]{#1^\ast}                    % komplexní sdružení
+\newcommand\per[1]{\overline{#1}}		% perioda
 
 % intervaly
 \newcommand{\ointo}[2]{\(#1,#2\)}
